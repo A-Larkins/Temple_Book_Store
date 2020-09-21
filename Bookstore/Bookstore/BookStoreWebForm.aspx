@@ -9,8 +9,47 @@
 <body>
     <form id="form1" runat="server">
         
+        <div id ="studentInfo">
+            
+            
+            Temple Book Store<br />
+            <br />
+            Fill out student form to begin:<br />
+            <asp:Label ID="lblEnterID" runat="server" Text="Student ID:"></asp:Label>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:TextBox ID="txtStudentID" runat="server"></asp:TextBox>
+            <br />
+            <asp:Label ID="lblEnterName" runat="server" Text="Name:"></asp:Label>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:TextBox ID="txtName" runat="server"></asp:TextBox>
+            <br />
+            <asp:Label ID="lblEnterAddress" runat="server" Text="Address:"></asp:Label>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:TextBox ID="txtAddress" runat="server"></asp:TextBox>
+            <br />
+            <asp:Label ID="lblEnterNum" runat="server" Text="Phone #:"></asp:Label>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:TextBox ID="txtPhoneNum" runat="server"></asp:TextBox>
+            <br />
+            Campus:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:DropDownList ID="ddlCampus" runat="server">
+                <asp:ListItem>Main</asp:ListItem>
+                <asp:ListItem>TUCC</asp:ListItem>
+                <asp:ListItem>Ambler</asp:ListItem>
+                <asp:ListItem>Tokyo</asp:ListItem>
+                <asp:ListItem>Rome</asp:ListItem>
+            </asp:DropDownList>
+            <br />
+            <br />
+            <asp:Button ID="btnStudentSubmit" runat="server" Height="47px" OnClick="btnStudentSubmit_Click" Text="Go!" Width="108px" />
+            <br />
+            
+            
+        </div>
+
         <div id="gvBooks">
-            <asp:GridView ID="gvBooks" runat="server" AllowSorting="True" AutoGenerateColumns="False">
+            <br />
+            <asp:GridView ID="gvBooks" runat="server" AllowSorting="True" AutoGenerateColumns="False" Visible="False">
                 <Columns>
                     <asp:TemplateField HeaderText="Select Book">
                         <ItemTemplate>
@@ -44,7 +83,7 @@
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>
-        </asp:GridView>
+            </asp:GridView>
         </div>
     </form>
 </body>
