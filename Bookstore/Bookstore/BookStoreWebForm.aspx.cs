@@ -23,6 +23,9 @@ namespace Bookstore
     public partial class BookStoreWebForm : System.Web.UI.Page
     {
 
+        Student student = new Student();
+
+
         protected void Page_Load(object sender, EventArgs e)
         {
             DBConnect bookDB = new DBConnect();
@@ -49,30 +52,61 @@ namespace Bookstore
 
             if (!validator.isValidID(id))
             {
-                ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + id + " is invalid." + "');", true);
+                lblErrorMessage.Text = "Invalid id, must be 8 digits...";
+                lblErrorMessage.Visible = true;
             }
             else if (!validator.isValidName(name))
             {
-                ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + name + " is invalid." + "');", true);
-
+                lblErrorMessage.Text = "Invalid name, can't be blank...";
+                lblErrorMessage.Visible = true;
             }
             else if (!validator.isValidAddress(address))
             {
-                ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + address + " is invalid." + "');", true);
+                lblErrorMessage.Text = "Invalid address, can't be blank...";
+                lblErrorMessage.Visible = true;
             }
             else if (!validator.isValidPhoneNum(phoneNum))
             {
-                ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + phoneNum + " is invalid." + "');", true);
+                lblErrorMessage.Text = "Invalid phone number, must be 10 digits...";
+                lblErrorMessage.Visible = true;
             }
             else
             {
-                Student student = new Student(id, name, address, phoneNum, campus);
+                student.Id = id;
+                student.Name = name;
+                student.Address = address;
+                student.PhoneNum = phoneNum;
+                student.Campus = campus;
                 gvBooks.Visible = true;
+                btnOrder.Visible = true;
             }
-        } // end button
+        } // end go button
+
+        // Order book button that displays the order receipt
+        protected void btnOrder_Click(object sender, EventArgs e)
+        {
 
 
+            lblOrderDisplay.Visible = true;
+            lbldisplay1.Visible = true;
+            lblDisplay2.Visible = true;
+            lblDisplay3.Visible = true;
+            lblDisplay4.Visible = true;
+            lblDisplay5.Visible = true;
+            lblStudentId.Visible = true;
+            lblName.Visible = true;
+            lblAddress.Visible = true;
+            lblPhoneNum.Visible = true;
+            lblCampus.Visible = true;
+            lblStudentId.Text = student.Id.ToString();
+            lblName.Text = student.Name.ToString();
+            lblAddress.Text = student.Address.ToString();
+            lblPhoneNum.Text = student.PhoneNum.ToString();
+            lblCampus.Text = student.Campus.ToString();
 
+            gvOutput.Visible = true;
+
+        }
     }
 
 }

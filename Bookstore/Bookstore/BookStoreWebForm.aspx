@@ -40,8 +40,9 @@
                 <asp:ListItem>Rome</asp:ListItem>
             </asp:DropDownList>
             <br />
+            <asp:Label ID="lblErrorMessage" runat="server" Font-Bold="True" Font-Size="X-Large" ForeColor="Red" Text="(error)" Visible="False"></asp:Label>
             <br />
-            <asp:Button ID="btnStudentSubmit" runat="server" Height="47px" OnClick="btnStudentSubmit_Click" Text="Go!" Width="108px" />
+            <asp:Button ID="btnStudentSubmit" runat="server" Height="44px" OnClick="btnStudentSubmit_Click" Text="Go!" Width="138px" />
             <br />
             
             
@@ -49,7 +50,7 @@
 
         <div id="gvBooks">
             <br />
-            <asp:GridView ID="gvBooks" runat="server" AllowSorting="True" AutoGenerateColumns="False" Visible="False">
+            <asp:GridView ID="gvBooks" runat="server" AutoGenerateColumns="False" Visible="False">
                 <Columns>
                     <asp:TemplateField HeaderText="Select Book">
                         <ItemTemplate>
@@ -84,6 +85,41 @@
                     </asp:TemplateField>
                 </Columns>
             </asp:GridView>
+            <br />
+            <asp:Button ID="btnOrder" runat="server" Height="44px" OnClick="btnOrder_Click" Text="Order!" Visible="False" Width="138px" />
+            <br />
+            <br />
+            <asp:Label ID="lblOrderDisplay" runat="server" Text="Order" Visible="False"></asp:Label>
+            <strong>
+            <br />
+            </strong>
+            <asp:Label ID="lbldisplay1" runat="server" Text="Student ID:" Visible="False"></asp:Label>
+            <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </strong>
+            <asp:Label ID="lblStudentId" runat="server" Text="Label" Visible="False"></asp:Label>
+            <strong>
+            <br />
+            </strong>
+            <asp:Label ID="lblDisplay2" runat="server" Text="Name:" Visible="False"></asp:Label>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:Label ID="lblName" runat="server" Text="Label" Visible="False"></asp:Label>
+            <br />
+            <asp:Label ID="lblDisplay3" runat="server" Text="Address:" Visible="False"></asp:Label>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:Label ID="lblAddress" runat="server" Text="Label" Visible="False"></asp:Label>
+            <br />
+            <asp:Label ID="lblDisplay4" runat="server" Text="Phone Number:" Visible="False"></asp:Label>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:Label ID="lblPhoneNum" runat="server" Text="Label" Visible="False"></asp:Label>
+            <br />
+            <asp:Label ID="lblDisplay5" runat="server" Text="Campus:" Visible="False"></asp:Label>
+            <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </strong>
+            <asp:Label ID="lblCampus" runat="server" Text="Label" Visible="False"></asp:Label>
+            <strong>
+            <br />
+            </strong>
+            <asp:GridView ID="gvOutput" runat="server" Visible="False" AutoGenerateColumns="False">
+            </asp:GridView>
+            <br />
         </div>
     </form>
 </body>
