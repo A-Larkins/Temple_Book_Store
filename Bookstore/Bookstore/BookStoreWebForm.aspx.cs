@@ -22,9 +22,7 @@ namespace Bookstore
 {
     public partial class BookStoreWebForm : System.Web.UI.Page
     {
-
         Student student = new Student();
-
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -36,7 +34,6 @@ namespace Bookstore
             gvBooks.DataSource = bookDS;
             gvBooks.DataBind();
             
-
         }
 
         // Submit button event handler.
@@ -77,16 +74,49 @@ namespace Bookstore
                 student.Address = address;
                 student.PhoneNum = phoneNum;
                 student.Campus = campus;
-                gvBooks.Visible = true;
-                btnOrder.Visible = true;
+
+                makeGridViewVisible();
+
             }
         } // end go button
 
         // Order book button that displays the order receipt
         protected void btnOrder_Click(object sender, EventArgs e)
         {
+            makeNextGridViewVisible();
+            
+            lblStudentId.Text = student.Id.ToString();
+            lblName.Text = student.Name.ToString();
+            lblAddress.Text = student.Address.ToString();
+            lblPhoneNum.Text = student.PhoneNum.ToString();
+            lblCampus.Text = student.Campus.ToString();
+            
+        }
 
+        // method to make stuff visible, hide some
+        private void makeGridViewVisible()
+        {
+            gvBooks.Visible = true;
+            btnOrder.Visible = true;
 
+            lblTempleBookstore.Visible = false;
+            lblFillOutForm.Visible = false;
+            lblEnterID.Visible = false;
+            lblEnterName.Visible = false;
+            lblEnterAddress.Visible = false;
+            lblEnterNum.Visible = false;
+            txtStudentID.Visible = false;
+            txtName.Visible = false;
+            txtAddress.Visible = false;
+            txtPhoneNum.Visible = false;
+            lbltheCampus.Visible = false;
+            ddlCampus.Visible = false;
+            btnStudentSubmit.Visible = false;
+        }
+
+        // make stuff visible, hide some
+        private void makeNextGridViewVisible()
+        {
             lblOrderDisplay.Visible = true;
             lbldisplay1.Visible = true;
             lblDisplay2.Visible = true;
@@ -98,15 +128,10 @@ namespace Bookstore
             lblAddress.Visible = true;
             lblPhoneNum.Visible = true;
             lblCampus.Visible = true;
-            lblStudentId.Text = student.Id.ToString();
-            lblName.Text = student.Name.ToString();
-            lblAddress.Text = student.Address.ToString();
-            lblPhoneNum.Text = student.PhoneNum.ToString();
-            lblCampus.Text = student.Campus.ToString();
-
             gvOutput.Visible = true;
-
         }
-    }
 
-}
+
+
+    } // end class
+} // end namespace

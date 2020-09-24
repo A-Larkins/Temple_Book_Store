@@ -12,9 +12,11 @@
         <div id ="studentInfo">
             
             
-            Temple Book Store<br />
+            <asp:Label ID="lblTempleBookstore" runat="server" Font-Bold="True" Text="Temple Book Store"></asp:Label>
             <br />
-            Fill out student form to begin:<br />
+            <br />
+            <asp:Label ID="lblFillOutForm" runat="server" Text="Fill out student form:"></asp:Label>
+            <br />
             <asp:Label ID="lblEnterID" runat="server" Text="Student ID:"></asp:Label>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:TextBox ID="txtStudentID" runat="server"></asp:TextBox>
@@ -31,7 +33,8 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:TextBox ID="txtPhoneNum" runat="server"></asp:TextBox>
             <br />
-            Campus:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:Label ID="lbltheCampus" runat="server" Text="Campus:"></asp:Label>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:DropDownList ID="ddlCampus" runat="server">
                 <asp:ListItem>Main</asp:ListItem>
                 <asp:ListItem>TUCC</asp:ListItem>
