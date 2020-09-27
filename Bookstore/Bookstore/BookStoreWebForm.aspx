@@ -51,9 +51,9 @@
             
         </div>
 
-        <div id="gvBooks">
+        <div id="gvBooksDiv">
             <br />
-            <asp:GridView ID="gvBooks" runat="server" AutoGenerateColumns="False" Visible="False">
+            <asp:GridView ID="gvBooks" runat="server" AutoGenerateColumns="False" Visible="False" >
                 <Columns>
                     <asp:TemplateField HeaderText="Select Book">
                         <ItemTemplate>
@@ -63,10 +63,10 @@
                     <asp:BoundField DataField="Title" HeaderText="Title" />
                     <asp:BoundField DataField="Authors" HeaderText="Authors" />
                     <asp:BoundField DataField="ISBN" HeaderText="ISBN" />
-                    <asp:BoundField DataField="BasePrice" DataFormatString="{0:c}" HeaderText="Price" />
+                    <asp:BoundField DataField="BasePrice" DataFormatString="{0:c}" HeaderText="Base Price" />
                     <asp:TemplateField HeaderText="Select Format">
                         <ItemTemplate>
-                            <asp:DropDownList ID="DropDownList1" runat="server">
+                            <asp:DropDownList ID="ddlFormat" runat="server">
                                 <asp:ListItem>hardcover</asp:ListItem>
                                 <asp:ListItem>paper-back</asp:ListItem>
                                 <asp:ListItem>e-book</asp:ListItem>
@@ -75,7 +75,7 @@
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Rent/Buy">
                         <ItemTemplate>
-                            <asp:DropDownList ID="DropDownList2" runat="server">
+                            <asp:DropDownList ID="ddlRentBuy" runat="server">
                                 <asp:ListItem>rent</asp:ListItem>
                                 <asp:ListItem>buy</asp:ListItem>
                             </asp:DropDownList>
@@ -83,14 +83,16 @@
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Quantity">
                         <ItemTemplate>
-                            <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="txtQuantity" runat="server"></asp:TextBox>
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>
             </asp:GridView>
-            <br />
             <asp:Button ID="btnOrder" runat="server" Height="44px" OnClick="btnOrder_Click" Text="Order!" Visible="False" Width="138px" />
             <br />
+            </div> <!-- End gvBookDiv -->
+            <div id="gvOutputDiv">
+            <asp:Label ID="lblErrorMessage2" runat="server" Font-Bold="True" Font-Size="X-Large" ForeColor="Red" Text="(error)" Visible="False"></asp:Label>
             <br />
             <asp:Label ID="lblOrderDisplay" runat="server" Text="Order" Visible="False"></asp:Label>
             <strong>
@@ -120,10 +122,20 @@
             <strong>
             <br />
             </strong>
-            <asp:GridView ID="gvOutput" runat="server" Visible="False" AutoGenerateColumns="False">
+            <asp:GridView ID="gvOutput" runat="server" Visible="False" AutoGenerateColumns="False" ShowFooter="true">
+                <Columns>
+                    <asp:BoundField DataField="Title" HeaderText="Title" />
+                    <asp:BoundField DataField="ISBN" HeaderText="ISBN" />
+                    <asp:BoundField DataField="Type" HeaderText="Type" />
+                    <asp:BoundField DataField="RentBuy" HeaderText="Rent/Buy" />
+                    <asp:BoundField DataField="Price" HeaderText="Price" />
+                    <asp:BoundField DataField="Quantity" HeaderText="Quantity" />
+                    <asp:BoundField DataField="totalPrice" HeaderText="TotalPrice" />
+                </Columns>
             </asp:GridView>
+            <asp:Button ID="btnStartOver" runat="server" OnClick="btnStartOver_Click" Text="Start Over!" Visible="False" />
             <br />
-        </div>
+            </div> <!-- End gvOutputDiv -->
     </form>
 </body>
 </html>

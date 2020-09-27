@@ -166,6 +166,15 @@ namespace Bookstore {
         protected global::System.Web.UI.WebControls.Button btnOrder;
         
         /// <summary>
+        /// lblErrorMessage2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblErrorMessage2;
+        
+        /// <summary>
         /// lblOrderDisplay control.
         /// </summary>
         /// <remarks>
@@ -272,5 +281,14 @@ namespace Bookstore {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gvOutput;
+        
+        /// <summary>
+        /// btnStartOver control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnStartOver;
     }
 }
