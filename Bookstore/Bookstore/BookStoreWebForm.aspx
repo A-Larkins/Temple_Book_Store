@@ -4,7 +4,8 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>Temple Book Store</title>
+    <link rel="stylesheet" href="stylesheet/bookstore_style.css">
 </head>
 <body>
     <form id="form1" runat="server">
@@ -136,6 +137,22 @@
             <asp:Button ID="btnStartOver" runat="server" OnClick="btnStartOver_Click" Text="Start Over!" Visible="False" />
             <br />
             </div> <!-- End gvOutputDiv -->
+
+            <div id="gvManagementDiv">
+
+                <asp:Button ID="btnOpenManagementGV" runat="server" OnClick="btnOpenManagementGV_Click" Text="Open Management Report" Visible="False" />
+                <br />
+                <asp:GridView ID="gvManagement" runat="server" AutoGenerateColumns="False" Visible="False">
+                    <Columns>
+                        <asp:BoundField DataField="Title" HeaderText="Title" />
+                        <asp:BoundField DataField="TotalSales" HeaderText="Total Sales" />
+                        <asp:BoundField DataField="TotalQuantityRented" HeaderText="Quantity Rented" />
+                        <asp:BoundField DataField="TotalQuantitySold" HeaderText="Quantity Sold" />
+                    </Columns>
+                </asp:GridView>
+
+            </div>
+
     </form>
 </body>
 </html>

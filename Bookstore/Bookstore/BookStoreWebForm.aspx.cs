@@ -157,19 +157,19 @@ namespace Bookstore
                     book.TotalPrice = price * Convert.ToUInt32(quantity.Text.ToString());
                     orderedBooksArrayList.Add(book);
                     
-                    //if (book.RentBuy == "rent")
-                    //{
-                    //    rentQuantity = rentQuantity + book.Quantity;
-                    //}
-                    //else if (book.RentBuy == "buy")
-                    //{
-                    //    buyQuantity = buyQuantity + book.Quantity;
-                    //}
-                    //String sqlUpdate = "UPDATE Books SET TotalSales + " + 
-                    //    book.TotalPrice + ", " + "TotalQuantityRented = TotalQuantityRented " 
-                    //    + rentQuantity + ", " + "TotalQuantitySold = TotalQuantitySold " + buyQuantity + 
-                    //    " WHERE Title = '" + book.Title + "'" ;
-                    //bookDB.DoUpdate(sqlUpdate);
+                    if (book.RentBuy == "rent")
+                    {
+                        rentQuantity = rentQuantity + book.Quantity;
+                    }
+                    else if (book.RentBuy == "buy")
+                    {
+                        buyQuantity = buyQuantity + book.Quantity;
+                    }
+                    String sqlUpdate = "UPDATE Books SET TotalSales + " + 
+                        book.TotalPrice + ", " + "TotalQuantityRented = TotalQuantityRented + " 
+                        + rentQuantity + ", " + "TotalQuantitySold = TotalQuantitySold " + buyQuantity + 
+                        " WHERE Title = '" + book.Title + "'" ;
+                    bookDB.DoUpdate(sqlUpdate);
                     }
 
             } // end loop of rows.
@@ -218,7 +218,7 @@ namespace Bookstore
             lblPhoneNum.Visible = true;
             lblCampus.Visible = true;
             gvOutput.Visible = true;
-
+            btnOpenManagementGV.Visible = true;
         }
 
         public void BuildTheOrder()
@@ -252,7 +252,13 @@ namespace Bookstore
             Response.Redirect("BookStoreWebForm.aspx");
         }
 
-
-
+        protected void btnOpenManagementGV_Click(object sender, EventArgs e)
+        {
+            String sqlSelect = "SELECT Title, TotalSales, TotalQuantityRented," +
+                " TotalQuantitySold FROM Books ORDER BY TotalSales DESC";
+            gvManagement.DataSource = bookDB.GetDataSet(sqlSelect);
+            gvManagement.DataBind();
+            gvManagement.Visible = true;
+        }
     } // end class
 } // end namespace
