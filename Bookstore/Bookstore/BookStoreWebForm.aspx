@@ -9,9 +9,8 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        
+        <div class="container">
         <div id ="studentInfo">
-            
             
             <asp:Label ID="lblTempleBookstore" runat="server" Font-Bold="True" Text="Temple Book Store"></asp:Label>
             <br />
@@ -92,6 +91,7 @@
             <asp:Button ID="btnOrder" runat="server" Height="44px" OnClick="btnOrder_Click" Text="Order!" Visible="False" Width="138px" />
             <br />
             </div> <!-- End gvBookDiv -->
+
             <div id="gvOutputDiv">
             <asp:Label ID="lblErrorMessage2" runat="server" Font-Bold="True" Font-Size="X-Large" ForeColor="Red" Text="(error)" Visible="False"></asp:Label>
             <br />
@@ -152,7 +152,7 @@
                 </asp:GridView>
 
             </div>
-
+            </div>
     </form>
 </body>
 </html>
