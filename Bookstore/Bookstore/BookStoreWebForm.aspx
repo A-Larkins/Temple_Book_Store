@@ -5,37 +5,36 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Temple Book Store</title>
-    <link rel="stylesheet" href="stylesheet/bookstore_style.css">
+    <link href="css/bootstrap.css" rel="stylesheet" />
 </head>
-<body>
-    <form id="form1" runat="server">
-        <div class="container">
-        <div id ="studentInfo">
+<body style="background-color: lightgray">
+    <form id="form1" runat="server" >
+        <div class="container-fluid" >
+        <div id ="studentInfo" class="text-center" >
             
-            <asp:Label ID="lblTempleBookstore" runat="server" Font-Bold="True" Text="Temple Book Store"></asp:Label>
+            <asp:Label ID="lblTempleBookstore" runat="server" Font-Bold="True" Text="Temple Book Store" Font-Size="X-Large" ForeColor="#CC0000">Temple Book Store</asp:Label>
             <br />
+            <asp:Label ID="lblFillOutForm" class="text-center" runat="server" Text="Fill out student form:" Font-Bold="True" Font-Size="Large"></asp:Label>
             <br />
-            <asp:Label ID="lblFillOutForm" runat="server" Text="Fill out student form:"></asp:Label>
-            <br />
-            <asp:Label ID="lblEnterID" runat="server" Text="Student ID:"></asp:Label>
+            <asp:Label ID="lblEnterID" runat="server" Text="Student ID:" Font-Bold="True" Font-Size="Medium"></asp:Label>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:TextBox ID="txtStudentID" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtStudentID" runat="server" Width="142px"></asp:TextBox>
             <br />
-            <asp:Label ID="lblEnterName" runat="server" Text="Name:"></asp:Label>
+            <asp:Label ID="lblEnterName" runat="server" Text="Name:" Font-Bold="True" Font-Size="Medium"></asp:Label>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:TextBox ID="txtName" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtName" runat="server" Width="157px"></asp:TextBox>
             <br />
-            <asp:Label ID="lblEnterAddress" runat="server" Text="Address:"></asp:Label>
+            <asp:Label ID="lblEnterAddress" runat="server" Text="Address:" Font-Bold="True" Font-Size="Medium"></asp:Label>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:TextBox ID="txtAddress" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtAddress" runat="server" Width="314px"></asp:TextBox>
             <br />
-            <asp:Label ID="lblEnterNum" runat="server" Text="Phone #:"></asp:Label>
+            <asp:Label ID="lblEnterNum" runat="server" Text="Phone #:" Font-Bold="True" Font-Size="Medium"></asp:Label>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:TextBox ID="txtPhoneNum" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtPhoneNum" runat="server" Width="117px"></asp:TextBox>
             <br />
-            <asp:Label ID="lbltheCampus" runat="server" Text="Campus:"></asp:Label>
+            <asp:Label ID="lbltheCampus" runat="server" Text="Campus:" Font-Bold="True" Font-Size="Medium"></asp:Label>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:DropDownList ID="ddlCampus" runat="server">
+            <asp:DropDownList ID="ddlCampus" runat="server" Font-Bold="True" Font-Size="Medium">
                 <asp:ListItem>Main</asp:ListItem>
                 <asp:ListItem>TUCC</asp:ListItem>
                 <asp:ListItem>Ambler</asp:ListItem>
@@ -45,15 +44,15 @@
             <br />
             <asp:Label ID="lblErrorMessage" runat="server" Font-Bold="True" Font-Size="X-Large" ForeColor="Red" Text="(error)" Visible="False"></asp:Label>
             <br />
-            <asp:Button ID="btnStudentSubmit" runat="server" Height="44px" OnClick="btnStudentSubmit_Click" Text="Go!" Width="138px" />
+            <asp:Button ID="btnStudentSubmit" runat="server" Height="44px" OnClick="btnStudentSubmit_Click" Text="Go!" Width="138px" Font-Bold="True" Font-Size="X-Large" />
             <br />
             
             
         </div>
 
-        <div id="gvBooksDiv">
+        <div id="gvBooksDiv" class="text-center" >
             <br />
-            <asp:GridView ID="gvBooks" runat="server" AutoGenerateColumns="False" Visible="False" >
+            <asp:GridView ID="gvBooks" runat="server" AutoGenerateColumns="False" Visible="False" HorizontalAlign="Center">
                 <Columns>
                     <asp:TemplateField HeaderText="Select Book">
                         <ItemTemplate>
@@ -88,42 +87,44 @@
                     </asp:TemplateField>
                 </Columns>
             </asp:GridView>
-            <asp:Button ID="btnOrder" runat="server" Height="44px" OnClick="btnOrder_Click" Text="Order!" Visible="False" Width="138px" />
+            <asp:Label ID="lblQuantityError" runat="server" Text="Enter A Quantity" Visible="False" Font-Bold="True" Font-Size="Large" ForeColor="Red"></asp:Label>
+            <br />
+            <asp:Button ID="btnOrder" runat="server" Height="44px" OnClick="btnOrder_Click" Text="Order!" Visible="False" Width="138px" Font-Bold="True" Font-Size="X-Large" />
             <br />
             </div> <!-- End gvBookDiv -->
 
-            <div id="gvOutputDiv">
+            <div id="gvOutputDiv" class="text-center" >
             <asp:Label ID="lblErrorMessage2" runat="server" Font-Bold="True" Font-Size="X-Large" ForeColor="Red" Text="(error)" Visible="False"></asp:Label>
             <br />
-            <asp:Label ID="lblOrderDisplay" runat="server" Text="Order" Visible="False"></asp:Label>
+            <asp:Label ID="lblOrderDisplay" runat="server" Text="Order" Visible="False" Font-Bold="True" Font-Size="X-Large"></asp:Label>
             <strong>
             <br />
             </strong>
-            <asp:Label ID="lbldisplay1" runat="server" Text="Student ID:" Visible="False"></asp:Label>
+            <asp:Label ID="lbldisplay1" runat="server" Text="Student ID:" Visible="False" Font-Bold="True" Font-Size="Large"></asp:Label>
             <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </strong>
-            <asp:Label ID="lblStudentId" runat="server" Text="Label" Visible="False"></asp:Label>
+            <asp:Label ID="lblStudentId" runat="server" Text="Label" Visible="False" Font-Bold="True" Font-Size="Large"></asp:Label>
             <strong>
             <br />
             </strong>
-            <asp:Label ID="lblDisplay2" runat="server" Text="Name:" Visible="False"></asp:Label>
+            <asp:Label ID="lblDisplay2" runat="server" Text="Name:" Visible="False" Font-Bold="True" Font-Size="Large"></asp:Label>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:Label ID="lblName" runat="server" Text="Label" Visible="False"></asp:Label>
+            <asp:Label ID="lblName" runat="server" Text="Label" Visible="False" Font-Bold="True" Font-Size="Large"></asp:Label>
             <br />
-            <asp:Label ID="lblDisplay3" runat="server" Text="Address:" Visible="False"></asp:Label>
+            <asp:Label ID="lblDisplay3" runat="server" Text="Address:" Visible="False" Font-Bold="True" Font-Size="Large"></asp:Label>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:Label ID="lblAddress" runat="server" Text="Label" Visible="False"></asp:Label>
+            <asp:Label ID="lblAddress" runat="server" Text="Label" Visible="False" Font-Bold="True" Font-Size="Large"></asp:Label>
             <br />
-            <asp:Label ID="lblDisplay4" runat="server" Text="Phone Number:" Visible="False"></asp:Label>
+            <asp:Label ID="lblDisplay4" runat="server" Text="Phone Number:" Visible="False" Font-Bold="True" Font-Size="Large"></asp:Label>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:Label ID="lblPhoneNum" runat="server" Text="Label" Visible="False"></asp:Label>
+            <asp:Label ID="lblPhoneNum" runat="server" Text="Label" Visible="False" Font-Bold="True" Font-Size="Large"></asp:Label>
             <br />
-            <asp:Label ID="lblDisplay5" runat="server" Text="Campus:" Visible="False"></asp:Label>
+            <asp:Label ID="lblDisplay5" runat="server" Text="Campus:" Visible="False" Font-Bold="True" Font-Size="Large"></asp:Label>
             <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </strong>
-            <asp:Label ID="lblCampus" runat="server" Text="Label" Visible="False"></asp:Label>
+            <asp:Label ID="lblCampus" runat="server" Text="Label" Visible="False" Font-Bold="True" Font-Size="Large"></asp:Label>
             <strong>
             <br />
             </strong>
-            <asp:GridView ID="gvOutput" runat="server" Visible="False" AutoGenerateColumns="False" ShowFooter="true">
+            <asp:GridView ID="gvOutput" runat="server" Visible="False" AutoGenerateColumns="False" ShowFooter="true" HorizontalAlign="Center">
                 <Columns>
                     <asp:BoundField DataField="Title" HeaderText="Title" />
                     <asp:BoundField DataField="ISBN" HeaderText="ISBN" />
@@ -134,15 +135,18 @@
                     <asp:BoundField DataField="totalPrice" HeaderText="TotalPrice" />
                 </Columns>
             </asp:GridView>
-            <asp:Button ID="btnStartOver" runat="server" OnClick="btnStartOver_Click" Text="Start Over!" Visible="False" />
+            <asp:Button ID="btnStartOver" runat="server" OnClick="btnStartOver_Click" Text="Start Over!" Visible="False" Font-Bold="True" Font-Size="X-Large" />
             <br />
             </div> <!-- End gvOutputDiv -->
 
-            <div id="gvManagementDiv">
+            <div id="gvManagementDiv" class="text-center">
 
-                <asp:Button ID="btnOpenManagementGV" runat="server" OnClick="btnOpenManagementGV_Click" Text="Open Management Report" Visible="False" />
+                <asp:Button ID="btnOpenManagementGV" runat="server" OnClick="btnOpenManagementGV_Click" Text="Open Management Report" Visible="False" Font-Bold="True" Font-Size="X-Large" />
                 <br />
-                <asp:GridView ID="gvManagement" runat="server" AutoGenerateColumns="False" Visible="False">
+                <br />
+                <br />
+                <br />
+                <asp:GridView ID="gvManagement" runat="server" AutoGenerateColumns="False" Visible="False" HorizontalAlign="Center">
                     <Columns>
                         <asp:BoundField DataField="Title" HeaderText="Title" />
                         <asp:BoundField DataField="TotalSales" HeaderText="Total Sales" />
@@ -150,6 +154,11 @@
                         <asp:BoundField DataField="TotalQuantitySold" HeaderText="Quantity Sold" />
                     </Columns>
                 </asp:GridView>
+
+                <br />
+                <br />
+                <br />
+                <br />
 
             </div>
             </div>

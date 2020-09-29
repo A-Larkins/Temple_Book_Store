@@ -153,6 +153,7 @@ namespace Bookstore
                     book.Type = ddlBookFormat.SelectedValue.ToString();
                     book.RentBuy = ddlRentBuy.SelectedValue.ToString();
                     book.Price = price;
+                    
                     book.Quantity = Int32.Parse(quantity.Text.ToString());
                     book.TotalPrice = price * Convert.ToUInt32(quantity.Text.ToString());
                     orderedBooksArrayList.Add(book);
